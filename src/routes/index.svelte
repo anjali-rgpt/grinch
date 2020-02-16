@@ -1,5 +1,6 @@
 <script>
 import Field from '../components/Field.svelte'
+import Addquestion from '../components/Addquestion.svelte'
 </script>
 
 <style>
