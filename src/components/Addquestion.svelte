@@ -21,8 +21,8 @@
       Points:<input class="input" type="number">
     </div>
   </div>
-  <div class="card-content">
 
+  <div class="card-content">
     <div class="level">
       <div class="level-item">
         <input class="input" placeholder="Option 1" type="text">
@@ -37,6 +37,10 @@
         <input class="input" placeholder="Option 4" type="text">
       </div>
     </div>
-
+  </div>
+  <div class="card-footer">
+    <div class="card-footer-item">
+      <div class="button is-rounded">Add</div>
+    </div>
   </div>
 </div>
