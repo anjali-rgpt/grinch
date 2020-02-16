@@ -1,5 +1,14 @@
 <script>
-  export let question, points, optionone, optiontwo, optionthree, optionfour, correct;
+  export let question, points, optionone, optiontwo, optionthree, optionfour, correct, idn;
+
+  const remove = (idn) => {
+    db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').doc(idn).delete()
+    .then(() => {
+      console.log("Document successfully deleted!");
+    }).catch(error => {
+      console.error("Error removing document: ", error);
+    });
+  }
 </script>
 
 <style>
@@ -16,7 +25,7 @@
   <div class="card-header">
     <p class="card-header-title">{question}</p>
     <div class="card-header-icon">
-      {points} marks
+      {points} mark(s)
     </div>
   </div>
   <div class="card-content">
@@ -51,14 +60,14 @@
   </div>
 
   <div class="card-footer">
-  <div class="card-footer-item">
-  
-  <div class="buttons">
-      <div class="button is-outlined is-rounded is-warning">Edit</div>
-      <div class="button is-outlined is-rounded is-danger">Delete</div>
+    <div class="card-footer-item">
+
+      <div class="buttons">
+        <div class="button is-outlined is-rounded is-warning">Edit</div>
+        <div class="button is-outlined is-rounded is-danger" on:click={remove(idn)}>Delete</div>
+      </div>
+
     </div>
-  
-  </div>
-    
+
   </div>
 </div>

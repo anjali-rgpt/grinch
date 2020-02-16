@@ -6,21 +6,27 @@
 		onMount
 	} from 'svelte';
 
-	let questions = 'loading...'
+	let id = []
+	let questions = []
 	let quizname = 'loading...'
+	let flag = false
 
-	onMount(() => {
-		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').get()
-			.then(function (doc) {
+	onMount(async () => {
+		await db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').get()
+			.then(doc => {
 				quizname = doc.data()['QuizName']
 			});
-		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions')
-			.onSnapshot(function (querySnapshot) {
-				questions = []
-				querySnapshot.forEach(function (doc) {
+		await db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions')
+			.onSnapshot(querySnapshot => {
+				querySnapshot.forEach(doc => {
+					id.push(doc.id)
+					id = id
 					questions.push(doc.data())
+					questions = questions
 				});
+				questions = questions
 			});
+		flag = true
 	})
 </script>
 
@@ -31,6 +37,10 @@
 
 	.bottom {
 		margin-top: 2rem;
+	}
+
+	.pad-top {
+		margin-top: 2rem
 	}
 </style>
 
@@ -48,21 +58,29 @@
 	{quizname}
 </h1>
 
-{#each questions as question}
-		<Field question={question['Question']} optionone={question['OptionA']} optiontwo={question['OptionB']} optionthree={question['OptionC']} optionfour={question['OptionD']}
-	points={question['Points']} correct={question['Correct']} />
+<h1 class="is-size-3 has-text-centered pad-top">Add questions</h1>
+<Addquestion />
+
+<h1 class="is-size-3 has-text-centered pad-top">Preview</h1>
+
+{#if flag}
+
+{#each questions as question, i}
+	<Field question={question['Question']} optionone={question['OptionA']} optiontwo={question['OptionB']} optionthree={question['OptionC']} optionfour={question['OptionD']}
+		points={question['Points']} correct={question['Correct']} idn={id[i]}/>
 {/each}
+
+{/if}
 
 
 <!-- <Field question="Who is a good bol?" optionone="Me" optiontwo="Anjali" optionthree="Anjalebi" optionfour="Anjay"
 	points=2 correct=4 /> -->
 
-<Addquestion />
+
 
 <div class="level bottom">
 	<div class="level-item">
 		<div class="buttons">
-			<button class="button is-primary is-outlined is-rounded is-medium">+ Add question</button>
 			<button class="button is-success is-rounded is-medium">Done</button>
 		</div>
 	</div>
