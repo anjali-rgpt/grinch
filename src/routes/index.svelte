@@ -6,20 +6,21 @@
 		onMount
 	} from 'svelte';
 
-	let data = []
+	let questions = 'loading...'
 	let quizname = 'loading...'
 
 	onMount(() => {
 		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').get()
-		.then(function (doc) {
-			quizname = doc.data()['QuizName']
-		});
-		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').get()
-		.then(function (querySnapshot) {
-			querySnapshot.forEach(function (doc) {
-				console.log(doc.id, " => ", doc.data());
+			.then(function (doc) {
+				quizname = doc.data()['QuizName']
 			});
-		});
+		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').get()
+			.then(function (querySnapshot) {
+				questions = []
+				querySnapshot.forEach(function (doc) {
+					questions.push(doc.data())
+				});
+			});
 	})
 </script>
 
@@ -39,16 +40,22 @@
 
 <div class="level">
 	<div class="level-item">
-		<button class="button is-primary is-rounded is-medium">+ Create quiz</button>
+		<button class="button is-primary is-rounded is-medium">+ Create new quiz</button>
 	</div>
 </div>
 
-<p class="content">
+<h1 class="title has-text-centered is-size-1">
 	{quizname}
-</p>
+</h1>
 
-<Field question="Who is a good bol?" optionone="Me" optiontwo="Anjali" optionthree="Anjalebi" optionfour="Anjay"
-	points=2 correct=4 />
+{#each questions as question}
+		<Field question={question['Question']} optionone={question['OptionA']} optiontwo={question['OptionB']} optionthree={question['OptionC']} optionfour={question['OptionD']}
+	points={question['Points']} correct={question['Correct']} />
+{/each}
+
+
+<!-- <Field question="Who is a good bol?" optionone="Me" optiontwo="Anjali" optionthree="Anjalebi" optionfour="Anjay"
+	points=2 correct=4 /> -->
 
 <Addquestion />
 
