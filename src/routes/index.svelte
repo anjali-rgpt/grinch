@@ -1,10 +1,12 @@
-<style>
-
-</style>
+<script>
+import Field from '../components/Field.svelte'
+</script>
 
 <svelte:head>
 	<title>Quiz App</title>
 </svelte:head>
 
 
-<h1 class="is-size-1">Mess. Horrid mess.</h1>
+<button class="button is-dark is-rounded is-medium">+ Create quiz</button>
+
+<Field question="Hello world" optionone="a" optiontwo="b" optionthree="c" optionfour="d" points=2 correct=4/>

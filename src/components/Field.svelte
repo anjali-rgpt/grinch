@@ -1,9 +1,28 @@
 <script>
-  export let question, points, option1, option2, option3, option4, correct;
+  export let question, points, optionone, optiontwo, optionthree, optionfour, correct;
 </script>
 
-<p>{question}</p>
-<input type="checkbox">{option1}
-<input type="checkbox">{option2}
-<input type="checkbox">{option3}
-<input type="checkbox">{option4}
+<div class="card">
+  <div class="card-header">
+    <p class="card-header-title">{question}</p>
+  </div>
+  <div class="card-content">
+    
+    <label class="checkbox">
+      <input type="checkbox" value="{optionone}">
+      {optionone}
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" value="{optiontwo}">
+      {optiontwo}
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" value="{optionthree}">
+      {optionthree}
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" value="{optionfour}">
+      {optionfour}
+    </label>
+  </div>
+</div>
