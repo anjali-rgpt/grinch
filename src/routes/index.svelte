@@ -64,13 +64,14 @@
 <Addquestion />
 
 <hr>
-<h1 class="is-size-3 has-text-centered pad-top">Preview:</h1>
+
+{#if questions.length>0}
+<h1 class="is-size-3 has-text-centered pad-top is-italic">Preview:</h1>
+{/if}
 
 {#if flag}
 
 <div class="columns is-multiline">
-
-
 
 {#each questions as question, i}
 <div class="column is-half">

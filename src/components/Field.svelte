@@ -1,5 +1,5 @@
 <script>
-  export let question, points, optionone, optiontwo, optionthree, optionfour, correct, idn;
+  export let question, points, optionone, optiontwo, optionthree, optionfour, idn;
 
   const remove = (idn) => {
     db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').doc(idn).delete()
