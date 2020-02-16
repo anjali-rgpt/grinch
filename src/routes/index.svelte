@@ -18,6 +18,8 @@
 			});
 		await db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions')
 			.onSnapshot(querySnapshot => {
+				id = []
+				questions = []
 				querySnapshot.forEach(doc => {
 					id.push(doc.id)
 					id = id
