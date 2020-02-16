@@ -2,7 +2,6 @@
   let question, points, optiona, optionb, optionc, optiond, correct
 
   const adder = () => {
-    console.log(question, points, optiona, optionb, optionc, optiond, correct)
     db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').add({
       Question: question,
       Points: points,

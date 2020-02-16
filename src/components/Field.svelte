@@ -4,9 +4,9 @@
   const remove = (idn) => {
     db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').doc(idn).delete()
     .then(() => {
-      console.log("Document successfully deleted!");
+      console.log("Question successfully deleted!");
     }).catch(error => {
-      console.error("Error removing document: ", error);
+      console.error("Error removing question: ", error);
     });
   }
 </script>
