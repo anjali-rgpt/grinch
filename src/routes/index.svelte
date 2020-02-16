@@ -9,4 +9,4 @@ import Field from '../components/Field.svelte'
 
 <button class="button is-dark is-rounded is-medium">+ Create quiz</button>
 
-<Field question="Hello world" optionone="a" optiontwo="b" optionthree="c" optionfour="d" points=2 correct=4/>
+<Field question="Who is a good bol?" optionone="Me" optiontwo="Anjali" optionthree="Anjalebi" optionfour="Anjay" points=2 correct=4/>
