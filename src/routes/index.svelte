@@ -19,7 +19,7 @@ import Field from '../components/Field.svelte'
 </div>
 
 <Field question="Who is a good bol?" optionone="Me" optiontwo="Anjali" optionthree="Anjalebi" optionfour="Anjay" points=2 correct=4/>
-
+<Addquestion/> 
 <div class="level">
 	<div class="level-item">
 		<div class="buttons">
