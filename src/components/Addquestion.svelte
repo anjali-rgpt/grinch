@@ -7,44 +7,34 @@
     margin-top: 1rem;
   }
 
-  .checkbox {
-    margin-right: 1.5rem;
+  .input {
+    margin-right: 0.5rem; 
+    margin-left: 0.5rem; 
   }
+
 </style>
 
 <div class="card">
   <div class="card-header">
-    <p class="card-header-title">Question:<input type="text"></p>
+    <p class="card-header-title">Question:<input class="input" type="text"></p>
     <div class="card-header-icon">
-      Points:<input type="number">
+      Points:<input class="input" type="number">
     </div>
   </div>
   <div class="card-content">
 
     <div class="level">
       <div class="level-item">
-        <label class="checkbox">
-          Option 1:<input type="checkbox" value="optionone">
-          <input type="text">
-        </label>
+        <input class="input" placeholder="Option 1" type="text">
       </div>
       <div class="level-item">
-        <label class="checkbox">
-         Option 2: <input type="checkbox" value="optiontwo">
-          <input type="text">
-        </label>
+        <input class="input" placeholder="Option 2" type="text">
       </div>
       <div class="level-item">
-        <label class="checkbox">
-         Option 3: <input type="checkbox" value="optionthree">
-          <input type="text">
-        </label>
+        <input class="input" placeholder="Option 3" type="text">
       </div>
       <div class="level-item">
-        <label class="checkbox">
-         Option 4: <input type="checkbox" value="optionfour">
-          <input type="text">
-        </label>
+        <input class="input" placeholder="Option 4" type="text">
       </div>
     </div>
 
