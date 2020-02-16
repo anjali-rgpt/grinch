@@ -15,6 +15,9 @@
 <div class="card">
   <div class="card-header">
     <p class="card-header-title">{question}</p>
+    <div class="card-header-icon">
+      {points} marks
+    </div>
   </div>
   <div class="card-content">
 
