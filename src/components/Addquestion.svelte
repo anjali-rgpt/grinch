@@ -3,17 +3,18 @@
 
   const adder = () => {
     db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').add({
-      Question: question,
-      Points: points,
-      Correct: correct,
-      OptionA: optiona,
-      OptionB: optionb,
-      OptionC: optionc,
-      OptionD: optiond,
-    })
-			.then(function (doc) {
-				console.log('written')
-			});
+        Question: question,
+        Points: points,
+        Correct: correct,
+        OptionA: optiona,
+        OptionB: optionb,
+        OptionC: optionc,
+        OptionD: optiond,
+      })
+      .then(function (doc) {
+        console.log('Question added!')
+        question = null, points = null, optiona = null, optionb = null, optionc = null, optiond = null, correct = null
+      });
   }
 </script>
 
@@ -23,14 +24,13 @@
   }
 
   .input {
-    margin-right: 0.5rem; 
-    margin-left: 0.5rem; 
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 
   .constrict {
     max-width: 150px;
   }
-
 </style>
 
 <div class="card">
@@ -62,7 +62,8 @@
   </div>
   <div class="card-footer">
     <div class="card-footer-item">
-      <input type="text" bind:value={correct} name="correct" class="input is-rounded constrict" placeholder="Correct answer" >
+      <input type="text" bind:value={correct} name="correct" class="input is-rounded constrict"
+        placeholder="Correct answer">
       <div class="button is-rounded" on:click={adder}>Add</div>
     </div>
   </div>

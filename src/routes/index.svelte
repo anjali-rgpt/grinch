@@ -63,14 +63,23 @@
 <h1 class="is-size-3 has-text-centered pad-top">Add questions</h1>
 <Addquestion />
 
+<hr>
 <h1 class="is-size-3 has-text-centered pad-top">Preview</h1>
 
 {#if flag}
 
+<div class="columns is-multiline">
+
+
+
 {#each questions as question, i}
+<div class="column is-half">
 	<Field question={question['Question']} optionone={question['OptionA']} optiontwo={question['OptionB']} optionthree={question['OptionC']} optionfour={question['OptionD']}
 		points={question['Points']} correct={question['Correct']} idn={id[i]}/>
+</div>
 {/each}
+
+</div>
 
 {/if}
 
