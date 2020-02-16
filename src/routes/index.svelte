@@ -57,14 +57,14 @@
 </div>
 
 <h1 class="title has-text-centered is-size-1">
-	{quizname}
+	Quiz - {quizname}
 </h1>
 
-<h1 class="is-size-3 has-text-centered pad-top">Add questions</h1>
+<h1 class="is-size-3 has-text-centered pad-top">Add questions:</h1>
 <Addquestion />
 
 <hr>
-<h1 class="is-size-3 has-text-centered pad-top">Preview</h1>
+<h1 class="is-size-3 has-text-centered pad-top">Preview:</h1>
 
 {#if flag}
 

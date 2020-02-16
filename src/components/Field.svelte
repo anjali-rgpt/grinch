@@ -14,6 +14,7 @@
 <style>
   .card {
     margin-top: 1rem;
+    border-radius: 7px;
   }
 
   .checkbox {
