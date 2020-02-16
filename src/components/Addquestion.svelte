@@ -2,6 +2,13 @@
   let question, points, optiona, optionb, optionc, optiond, correct
 
   const adder = () => {
+    if(correct==null || question == null || optiona == null || optionb==null || optionc==null || optiond==null){
+      alert("Form not complete");
+    }
+    else if(correct != optiona && correct!=optionb && correct != optionc && correct != optiond){
+      alert("Correct answer doesn't match any of the options");
+    }
+    else{
     db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').add({
         Question: question,
         Points: points,
@@ -15,6 +22,7 @@
         console.log('Question added!')
         question = null, points = null, optiona = null, optionb = null, optionc = null, optiond = null, correct = null
       });
+    }
   }
 </script>
 
