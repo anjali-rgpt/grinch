@@ -14,8 +14,8 @@
 			.then(function (doc) {
 				quizname = doc.data()['QuizName']
 			});
-		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').get()
-			.then(function (querySnapshot) {
+		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions')
+			.onSnapshot(function (querySnapshot) {
 				questions = []
 				querySnapshot.forEach(function (doc) {
 					questions.push(doc.data())

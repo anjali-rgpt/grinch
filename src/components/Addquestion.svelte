@@ -1,5 +1,21 @@
 <script>
-  
+  let question, points, optiona, optionb, optionc, optiond, correct
+
+  const adder = () => {
+    console.log(question, points, optiona, optionb, optionc, optiond, correct)
+    db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').add({
+      Question: question,
+      Points: points,
+      Correct: correct,
+      OptionA: optiona,
+      OptionB: optionb,
+      OptionC: optionc,
+      OptionD: optiond,
+    })
+			.then(function (doc) {
+				console.log('written')
+			});
+  }
 </script>
 
 <style>
@@ -22,33 +38,33 @@
   <div class="card-header">
     <p class="card-header-title">
       Question:
-      <input class="input" type="text">
+      <input bind:value={question} class="input" type="text">
     </p>
     <div class="card-header-icon">
-      Points:<input class="input" type="number">
+      Points:<input class="input" bind:value={points} type="number">
     </div>
   </div>
 
   <div class="card-content">
     <div class="level">
       <div class="level-item">
-        <input class="input" placeholder="Option 1" type="text">
+        <input class="input" bind:value={optiona} placeholder="Option 1" type="text">
       </div>
       <div class="level-item">
-        <input class="input" placeholder="Option 2" type="text">
+        <input class="input" bind:value={optionb} placeholder="Option 2" type="text">
       </div>
       <div class="level-item">
-        <input class="input" placeholder="Option 3" type="text">
+        <input class="input" bind:value={optionc} placeholder="Option 3" type="text">
       </div>
       <div class="level-item">
-        <input class="input" placeholder="Option 4" type="text">
+        <input class="input" bind:value={optiond} placeholder="Option 4" type="text">
       </div>
     </div>
   </div>
   <div class="card-footer">
     <div class="card-footer-item">
-      <input type="text" name="correct" class="input is-rounded constrict" placeholder="Correct answer" >
-      <div class="button is-rounded">Add</div>
+      <input type="text" bind:value={correct} name="correct" class="input is-rounded constrict" placeholder="Correct answer" >
+      <div class="button is-rounded" on:click={adder}>Add</div>
     </div>
   </div>
 </div>
