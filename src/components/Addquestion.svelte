@@ -16,7 +16,10 @@
 
 <div class="card">
   <div class="card-header">
-    <p class="card-header-title">Question:<input class="input" type="text"></p>
+    <p class="card-header-title">
+      Question:
+      <input class="input" type="text">
+    </p>
     <div class="card-header-icon">
       Points:<input class="input" type="number">
     </div>

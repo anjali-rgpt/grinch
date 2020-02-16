@@ -49,4 +49,16 @@
     </div>
 
   </div>
+
+  <div class="card-footer">
+  <div class="card-footer-item">
+  
+  <div class="buttons">
+      <div class="button is-outlined is-rounded is-warning">Edit</div>
+      <div class="button is-outlined is-rounded is-danger">Delete</div>
+    </div>
+  
+  </div>
+    
+  </div>
 </div>
