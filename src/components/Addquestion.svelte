@@ -12,6 +12,10 @@
     margin-left: 0.5rem; 
   }
 
+  .constrict {
+    max-width: 150px;
+  }
+
 </style>
 
 <div class="card">
@@ -43,6 +47,7 @@
   </div>
   <div class="card-footer">
     <div class="card-footer-item">
+      <input type="text" name="correct" class="input is-rounded constrict" placeholder="Correct answer" >
       <div class="button is-rounded">Add</div>
     </div>
   </div>

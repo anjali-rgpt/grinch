@@ -1,14 +1,36 @@
 <script>
-import Field from '../components/Field.svelte'
-import Addquestion from '../components/Addquestion.svelte'
+	import Field from '../components/Field.svelte'
+	import Addquestion from '../components/Addquestion.svelte'
 
+	import {
+		onMount
+	} from 'svelte';
 
+	let data = []
+	let quizname = 'loading...'
+
+	onMount(() => {
+		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').get()
+		.then(function (doc) {
+			quizname = doc.data()['QuizName']
+		});
+		db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').get()
+		.then(function (querySnapshot) {
+			querySnapshot.forEach(function (doc) {
+				console.log(doc.id, " => ", doc.data());
+			});
+		});
+	})
 </script>
 
 <style>
-.buttons {
-	margin-top: 1rem;
-}
+	.buttons {
+		margin-top: 1rem;
+	}
+
+	.bottom {
+		margin-top: 2rem;
+	}
 </style>
 
 <svelte:head>
@@ -21,11 +43,16 @@ import Addquestion from '../components/Addquestion.svelte'
 	</div>
 </div>
 
-<Field question="Who is a good bol?" optionone="Me" optiontwo="Anjali" optionthree="Anjalebi" optionfour="Anjay" points=2 correct=4/>
+<p class="content">
+	{quizname}
+</p>
 
-<Addquestion/> 
+<Field question="Who is a good bol?" optionone="Me" optiontwo="Anjali" optionthree="Anjalebi" optionfour="Anjay"
+	points=2 correct=4 />
 
-<div class="level">
+<Addquestion />
+
+<div class="level bottom">
 	<div class="level-item">
 		<div class="buttons">
 			<button class="button is-primary is-outlined is-rounded is-medium">+ Add question</button>
