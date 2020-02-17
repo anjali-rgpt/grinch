@@ -8,6 +8,9 @@
     else if(correct != optiona && correct!=optionb && correct != optionc && correct != optiond){
       alert("Correct answer doesn't match any of the options");
     }
+    else if(points>4.0 || points<1.0){
+      alert("Invalid points.")
+    }
     else{
     db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').add({
         Question: question,
