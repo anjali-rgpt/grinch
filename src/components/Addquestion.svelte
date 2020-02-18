@@ -52,31 +52,31 @@
       <input bind:value={question} class="input" id="question" type="text">
     </p>
     <div class="card-header-icon">
-      Points:<input class="input" bind:value={points} type="number">
+      Points:<input class="input" id="points" bind:value={points} type="number">
     </div>
   </div>
 
   <div class="card-content">
     <div class="level">
       <div class="level-item">
-        <input class="input" bind:value={optiona} name="optiona"placeholder="Option 1" type="text">
+        <input class="input" bind:value={optiona} id="optiona"placeholder="Option 1" type="text">
       </div>
       <div class="level-item">
-        <input class="input" bind:value={optionb} name="optionb" placeholder="Option 2" type="text">
+        <input class="input" bind:value={optionb} id="optionb" placeholder="Option 2" type="text">
       </div>
       <div class="level-item">
-        <input class="input" bind:value={optionc} name="optionc"placeholder="Option 3" type="text">
+        <input class="input" bind:value={optionc} id="optionc"placeholder="Option 3" type="text">
       </div>
       <div class="level-item">
-        <input class="input" bind:value={optiond} name="optiond" placeholder="Option 4" type="text">
+        <input class="input" bind:value={optiond} id="optiond" placeholder="Option 4" type="text">
       </div>
     </div>
   </div>
   <div class="card-footer">
     <div class="card-footer-item">
-      <input type="text" bind:value={correct} name="correct" class="input is-rounded constrict"
+      <input type="text" bind:value={correct} id="correct" class="input is-rounded constrict"
         placeholder="Correct answer">
-      <div class="button is-rounded" name="addbutton" on:click={adder}>Add</div>
+      <div class="button is-rounded" id="addbutton" on:click={adder}>Add</div>
     </div>
   </div>
 </div>
