@@ -1,0 +1,6 @@
+projectKey=brainBoggle
+serverUrl=http://localhost:9000
+serverVersion=8.1.0.31237
+dashboardUrl=http://localhost:9000/dashboard?id=brainBoggle
+ceTaskId=AXBzP0TXZopjKJjMB8di
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXBzP0TXZopjKJjMB8di

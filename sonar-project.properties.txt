@@ -1,0 +1,5 @@
+sonar-project.properties
+
+sonar.projectKey=grinchProject
+
+sonar.sources=src
