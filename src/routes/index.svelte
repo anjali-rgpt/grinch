@@ -12,11 +12,11 @@
 	let flag = false
 
 	onMount(async () => {
-		await db.collection("courses").doc('15CSE313').collection('quizzes').doc('q1').get()
+		await db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').get()
 			.then(doc => {
 				quizname = doc.data()['QuizName']
 			});
-		await db.collection("courses").doc('15CSE313').collection('quizzes').doc('q1').collection('questions')
+		await db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions')
 			.onSnapshot(querySnapshot => {
 				id = []
 				questions = []
