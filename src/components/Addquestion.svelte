@@ -12,7 +12,7 @@
       alert("Invalid points.");
     }
     else{
-    db.collection("course").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').add({
+    db.collection("courses").doc('15CSE313').collection('quizzes').doc('q1').collection('questions').add({
         Question: question,
         Points: points,
         Correct: correct,
