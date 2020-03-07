@@ -3,25 +3,19 @@
 		onMount
 	} from 'svelte';
 
+    let semesters=[]
 
-let semesters=[]
-
-onMount(async() => {
-    await db.collection('course-by-sem').get()
-    .then(doc =>{
-        semesters=[]
-        //id=[]
-        doc.forEach(element => {
-
-            semesters.push(element.data())
-            semesters=semesters
-            
-        });
-
-        semesters=semesters
-    });
-}
-)
+    onMount(async () => {
+        await db.collection('course-by-sem').get()
+            .then(doc => {
+                semesters = []
+                doc.forEach(element => {
+                    semesters.push(element.data())
+                    semesters = semesters
+                });
+                semesters = semesters
+            });
+    })
 </script>
 
 
