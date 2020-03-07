@@ -1,6 +1,6 @@
 <script>
 	import Field from '../components/Field.svelte'
-	import Addquestion from '../components/Addquestion.svelte'
+	import Addquestion from '../components/AddQuestion.svelte'
 
 	import {
 		onMount
