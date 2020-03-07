@@ -11,7 +11,7 @@ onMount(async() => {
     .then(doc =>{
         semesters=[]
         //id=[]
-        doc.array.forEach(element => {
+        doc.forEach(element => {
 
             semesters.push(element.data())
             semesters=semesters
