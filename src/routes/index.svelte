@@ -1,6 +1,6 @@
 <script>
 	import Field from '../components/Field.svelte'
-	import Addquestion from '../components/AddQuestion.svelte'
+	import AddQuestion from '../components/AddQuestion.svelte'
 
 	import {
 		onMount
@@ -61,7 +61,7 @@
 </h1>
 
 <h1 class="is-size-3 has-text-centered pad-top">Add questions:</h1>
-<Addquestion />
+<AddQuestion />
 
 <hr>
 
