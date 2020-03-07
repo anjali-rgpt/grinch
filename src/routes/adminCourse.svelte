@@ -26,6 +26,8 @@ onMount(async() => {
 </svelte:head>
 
 <select name="semester">
-<option></option>
+{#each semesters as semester,i}
+<option name={semester['Semester']}>{semester['Semester']}</option>
+{/each}
 </select>
 
