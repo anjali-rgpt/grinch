@@ -1,0 +1,20 @@
+<script>
+export let title, content, actions;
+
+</script>
+
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            {title}
+        </p>
+    </header>
+    <div class="card-content">
+        {content}
+    </div>
+    <footer class="card-footer">
+        {#each actions as action}
+            <a class="card-footer-item">{action}</a>
+        {/each}
+    </footer>
+</div>
