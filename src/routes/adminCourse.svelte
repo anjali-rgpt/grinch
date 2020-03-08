@@ -28,7 +28,7 @@
 
 <div class="hero is-fullheight">
 	<h1 class="has-text-centered is-size-1 title">Admin Panel</h1>
-	<h4 class="has-text-centered is-size-5 subtitle">Use this panel to add/remove/ modify courses</h4>
+	<h4 class="has-text-centered is-size-5 subtitle">Use this panel to add / remove / modify courses</h4>
 	<div class="columns hero-body">
 		<div class="column is-one-quarter left-pane">
 			<div class="field">
@@ -49,7 +49,7 @@
     </div>
     <div class="column right-pane">
 			<!-- course details here -->
-			<CourseCard title="Course code" content="Course details" actions={["edit", "delete"]}/>
+			<CourseCard title="Course Code" content="Course Details" actions={["edit", "delete"]}/>
 			
 		</div>
   </div>
