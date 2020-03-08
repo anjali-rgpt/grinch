@@ -5,7 +5,8 @@
 
 	import CourseCard from '../components/CourseCard.svelte'
 
-	let semesters = ['loading...']
+    let semesters = ['loading...']
+    let courselist=['loading...']
 
 	onMount(async () => {
 		await db.collection('course-by-sem').get()
@@ -17,7 +18,19 @@
 				});
 				semesters = semesters
 			});
-	})
+    })
+    
+const getCourses=sem =>{
+db.collection('course-by-sem').doc(String(sem)).collection('courselist').get()
+.then(doc=>{
+    courselist=[]
+    doc.forEach(element=>{
+        courselist.push(element.data())
+        courselist=courselist
+    });
+courselist=courselist
+});
+    }
 </script>
 
 
