@@ -80,10 +80,13 @@
     </div>
     <div class="column right-pane">
       <!-- course details here -->
+      {#each courselist as course}
       <CourseCard
-        title="Course Code"
-        content="Course Details"
+        title={"Course Code: "+ course['CourseCode']}
+        content={"Course Name:"+course['CourseName']+"\nCredits:"+course['Credits']}
         actions={['edit', 'delete']} />
+
+        {/each}
 
     </div>
   </div>
