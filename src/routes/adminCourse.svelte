@@ -3,6 +3,8 @@
 		onMount
 	} from 'svelte';
 
+	import CourseCard from '../components/CourseCard.svelte'
+
 	let semesters = ['loading...']
 
 	onMount(async () => {
@@ -47,6 +49,7 @@
     </div>
     <div class="column right-pane">
 			<!-- course details here -->
+			<CourseCard title="Course code" content="Course details" actions={["edit", "delete"]}/>
 			
 		</div>
   </div>

@@ -14,7 +14,13 @@ export let title, content, actions;
     </div>
     <footer class="card-footer">
         {#each actions as action}
-            <a class="card-footer-item">{action}</a>
+            <a class="card-footer-item" href="#!">{action}</a>
         {/each}
     </footer>
 </div>
+
+<style>
+.card {
+    width: 100%;
+}
+</style>
