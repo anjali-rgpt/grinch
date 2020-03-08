@@ -3,8 +3,9 @@
 
   import CourseCard from "../components/CourseCard.svelte";
 
-  let semesters = ["loading..."];
-  let courselist = ["loading..."];
+  let semesters = [];
+  let courselist = [];
+  let sem = 1
 
   onMount(async () => {
     await db
@@ -20,7 +21,8 @@
       });
   });
 
-  const getCourses = sem => {
+  const getCourses = () => {
+	console.log(sem)
     db.collection("course-by-sem")
       .doc(String(sem))
       .collection("courselist")
@@ -30,7 +32,8 @@
         doc.forEach(element => {
           courselist.push(element.data());
           courselist = courselist;
-        });
+		});
+		console.log(courselist)
         courselist = courselist;
       });
   };
@@ -64,9 +67,9 @@
         <label for="sem" class="label">Choose semester:</label>
         <div class="control">
           <div id="sem" class="select">
-            <select name="semester">
+            <select name="semester" bind:value={sem} on:change="{getCourses}">
               {#each semesters as semester}
-                <option name={semester['Semester']} on:click={getCourses(semester['Semester'])}>
+                <option value={semester['Semester']} name={semester['Semester']}>
                   {'Semester ' + (semester['Semester'] || 'loading...')}
                 </option>
               {/each}
@@ -82,12 +85,10 @@
       <!-- course details here -->
       {#each courselist as course}
       <CourseCard
-        title={"Course Code: "+ course['CourseCode']}
-        content={"Course Name:"+course['CourseName']+"\nCredits:"+course['Credits']}
+        title={"Course Code: " + course['CourseCode']}
+        content={"Course Name:" + course['CourseName'] + "\nCredits:" + course['Credits']}
         actions={['edit', 'delete']} />
-
         {/each}
-
     </div>
   </div>
 </div>
