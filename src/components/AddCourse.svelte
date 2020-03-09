@@ -11,8 +11,7 @@
             alert("Course name can only contain letters")
         } else if (!courseCode.match(courseCodeFormat)) {
             alert("Course Code Format is invalid")
-        }
-        else if (credits<1 || credits>4) {
+        } else if (credits < 1 || credits > 4) {
             alert("Enter a proper credit amount")
         } else {
             db.collection("course-by-sem").doc(String(semester)).collection("courselist").doc(courseCode).set({
@@ -61,8 +60,7 @@
 
         <div class="card-level-item">
             Credits:
-            <input type="number" placeholder="Credits" id="credits" class="input" bind:value={credits}
-                required />
+            <input type="number" placeholder="Credits" id="credits" class="input" bind:value={credits} required />
         </div>
     </div>
 

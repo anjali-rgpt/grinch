@@ -32,8 +32,7 @@
     db.collection("course-by-sem")
       .doc(String(sem))
       .collection("courselist")
-      .get()
-      .then(doc => {
+      .onSnapshot(doc => {
         courselist = [];
         doc.forEach(element => {
           courselist.push(element.data());
@@ -104,9 +103,11 @@
       {#if !addNew }
         {#each courselist as course}
           <CourseCard
-            title={'Course Code: ' + course['CourseCode']}
-            content={'Course Name: ' + course['CourseName'] + ' Credits: ' + course['Credits']}
-            actions={['edit', 'delete']} />
+            courseCode={course['CourseCode']}
+            courseName={course['CourseName']}
+            credits={course['Credits']}
+            semester={sem}
+             />
         {/each}
       {:else}
         <AddCourse semester={sem} />
