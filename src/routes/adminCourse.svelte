@@ -3,9 +3,12 @@
 
   import CourseCard from "../components/CourseCard.svelte";
 
+  import AddCourse from "../components/AddCourse.svelte";
+
   let semesters = [];
   let courselist = [];
-  let sem = 1
+  let sem = 1;
+  let addNew = 0;
 
   onMount(async () => {
     await db
@@ -22,7 +25,7 @@
   });
 
   const getCourses = () => {
-	console.log(sem)
+    console.log(sem);
     db.collection("course-by-sem")
       .doc(String(sem))
       .collection("courselist")
@@ -32,8 +35,8 @@
         doc.forEach(element => {
           courselist.push(element.data());
           courselist = courselist;
-		});
-		console.log(courselist)
+        });
+        console.log(courselist);
         courselist = courselist;
       });
   };
@@ -67,9 +70,11 @@
         <label for="sem" class="label">Choose semester:</label>
         <div class="control">
           <div id="sem" class="select">
-            <select name="semester" bind:value={sem} on:change="{getCourses}">
+            <select name="semester" bind:value={sem} on:change={getCourses}>
               {#each semesters as semester}
-                <option value={semester['Semester']} name={semester['Semester']}>
+                <option
+                  value={semester['Semester']}
+                  name={semester['Semester']}>
                   {'Semester ' + (semester['Semester'] || 'loading...')}
                 </option>
               {/each}
@@ -77,18 +82,27 @@
           </div>
         </div>
       </div>
-      <button class="button is-rounded is-success is-medium">
+      <button
+        class="button is-rounded is-success is-medium"
+        on:click={() => {
+          addNew = 1;
+        }}>
         + Add new course
       </button>
     </div>
     <div class="column right-pane">
       <!-- course details here -->
-      {#each courselist as course}
-      <CourseCard
-        title={"Course Code: " + course['CourseCode']}
-        content={"Course Name: " + course['CourseName'] + " Credits: " + course['Credits']}
-        actions={['edit', 'delete']} />
+      {#if !addNew}
+        {#each courselist as course}
+          <CourseCard
+            title={'Course Code: ' + course['CourseCode']}
+            content={'Course Name: ' + course['CourseName'] + ' Credits: ' + course['Credits']}
+            actions={['edit', 'delete']} />
         {/each}
+      {:else}
+        <AddCourse semester={sem} />
+        {addNew=0}
+      {/if}
     </div>
   </div>
 </div>

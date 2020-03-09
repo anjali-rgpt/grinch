@@ -14,7 +14,7 @@ else if(!courseCode.match(courseCodeFormat)){
 }
 
 else{
-    db.collection("course-by-sem").doc(String(semester)).collection("courselist").add({
+    db.collection("course-by-sem").doc(String(semester)).collection("courselist").doc(courseCode).set({
         CourseCode:courseCode,
         CourseName:courseName,
         Credits:credits
