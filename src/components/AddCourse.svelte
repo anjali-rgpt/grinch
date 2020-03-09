@@ -43,30 +43,34 @@
 </style>
 
 <div class="card">
-    <div class="card-level">
-        <div class="card-level-item">
-            <p>
-                Course Code
+    <div class="card-body">
+        <div class="field">
+            <label for="coursecode" class="label"> Course Code</label>
+            <div class="control">
                 <input type="text" placeholder="Course Code" id="coursecode" class="input" bind:value={courseCode}
                     required />
-            </p>
+            </div>
         </div>
 
-        <div class="card-level-item">
-            Course Name:
-            <input type="text" placeholder="Course Name" id="coursename" class="input" bind:value={courseName}
-                required />
+        <div class="field">
+            <label for="coursename" class="label"> Course Name</label>
+            <div class="control">
+               <input type="text" placeholder="Course Name" id="coursename" class="input" bind:value={courseName} required /> 
+            </div>
         </div>
 
-        <div class="card-level-item">
-            Credits:
-            <input type="number" placeholder="Credits" id="credits" class="input" bind:value={credits} required />
+        <div class="field">
+            <label for="credits" class="label"> Credits</label>
+            <div class="control">
+            <input type="number" placeholder="Credits" id="credits" class="input" bind:value={credits} required />    
+            </div>
         </div>
+        
     </div>
 
     <div class="card-footer">
         <div class="card-footer-item">
-            <div class="button is-rounded" id="donebutton" on:click={submitCourse}>Done</div>
+            <div class="button is-rounded is-medium is-outlined" id="donebutton" on:click={submitCourse}>Done</div>
         </div>
 
     </div>
