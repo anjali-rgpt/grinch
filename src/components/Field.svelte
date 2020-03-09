@@ -2,7 +2,7 @@
   export let question, points, optionone, optiontwo, optionthree, optionfour, idn, correct;
 
   const remove = (idn) => {
-    db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE313').collection('quizzes').doc('quiz1').collection('questions').doc(idn).delete()
+    db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1').collection('questions').doc(idn).delete()
     .then(() => {
       console.log("Question successfully deleted!");
     }).catch(error => {
