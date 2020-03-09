@@ -52,6 +52,7 @@
   .right-pane {
     align-items: center;
     justify-content: center;
+    
   }
 </style>
 
@@ -100,8 +101,8 @@
             actions={['edit', 'delete']} />
         {/each}
       {:else}
-        <AddCourse semester={sem} />
-        {addNew=0}
+        <AddCourse semester={sem} on:load={()=>{addNew=0}} />
+        
       {/if}
     </div>
   </div>

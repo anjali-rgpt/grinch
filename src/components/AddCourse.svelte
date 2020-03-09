@@ -2,7 +2,7 @@
   export let semester;
   let courseName, courseCode, credits;
 
-const letters= /^[A-Za-z]+$/
+const letters= /^[ A-Za-z]+$/
 const courseCodeFormat=/^[1][59][A-Z]{3}[1-4]{3}/
   const submitCourse=() =>{
 if (!courseName.match(letters)){
@@ -27,6 +27,22 @@ else{
   }
 </script>
 
+<style>
+.card {
+    width:100%;
+    margin-top: 1rem;
+    border-radius: 7px;
+    padding:1.5rem;
+    
+}
+
+.input {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+</style>
+
 <div class="card">
 <div class="card-level">
   <div class="card-level-item">
@@ -37,7 +53,7 @@ else{
         placeholder="Course Code"
         id="coursecode"
         class="input"
-        bind:value={courseCode} />
+        bind:value={courseCode} required/>
     </p>
   </div>
 
@@ -48,7 +64,7 @@ else{
       placeholder="Course Name"
       id="coursename"
       class="input"
-      bind:value={courseName} />
+      bind:value={courseName} required/>
   </div>
 
   <div class="card-level-item">
@@ -60,7 +76,7 @@ else{
       max="4"
       id="credits"
       class="input"
-      bind:value={credits} />
+      bind:value={credits} required/>
   </div>
   </div>
 
