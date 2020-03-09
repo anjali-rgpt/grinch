@@ -86,7 +86,7 @@
       {#each courselist as course}
       <CourseCard
         title={"Course Code: " + course['CourseCode']}
-        content={"Course Name:" + course['CourseName'] + "\nCredits:" + course['Credits']}
+        content={"Course Name: " + course['CourseName'] + " Credits: " + course['Credits']}
         actions={['edit', 'delete']} />
         {/each}
     </div>
