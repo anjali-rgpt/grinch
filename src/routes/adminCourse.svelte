@@ -23,11 +23,12 @@
         });
         semesters = semesters;
       });
+      await getCourses();
   });
 
   const getCourses = () => {
     console.log(sem);
-    addNew=0;
+    addNew = false;
     db.collection("course-by-sem")
       .doc(String(sem))
       .collection("courselist")
@@ -55,6 +56,10 @@
     align-items: center;
     justify-content: center;
     
+  }
+
+  .pad-top {
+      margin-top: 1rem;
   }
 </style>
 
@@ -88,10 +93,11 @@
       <button
         class="button is-rounded is-success is-medium"
         on:click={() => {
-          addNew = 1;
+          addNew = true;
         }}>
         + Add new course
       </button>
+      <button on:click={() => {addNew = !addNew}} class="button is-rounded is-medium is-dark pad-top">View current courses</button>
     </div>
     <div class="column right-pane">
       <!-- course details here -->
