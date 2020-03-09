@@ -9,6 +9,7 @@
   let courselist = [];
   let sem = 1;
   let addNew = 0;
+  
 
   onMount(async () => {
     await db
@@ -26,6 +27,7 @@
 
   const getCourses = () => {
     console.log(sem);
+    addNew=0;
     db.collection("course-by-sem")
       .doc(String(sem))
       .collection("courselist")
@@ -93,7 +95,7 @@
     </div>
     <div class="column right-pane">
       <!-- course details here -->
-      {#if !addNew}
+      {#if !addNew }
         {#each courselist as course}
           <CourseCard
             title={'Course Code: ' + course['CourseCode']}
@@ -101,7 +103,7 @@
             actions={['edit', 'delete']} />
         {/each}
       {:else}
-        <AddCourse semester={sem} on:load={()=>{addNew=0}} />
+        <AddCourse semester={sem} />
         
       {/if}
     </div>
