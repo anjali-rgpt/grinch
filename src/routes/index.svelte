@@ -23,7 +23,7 @@ main {
 <div class="columns is-multiline">
     <div class="column has-background-primary is-half">
         <div class="center">
-            <button class="button is-large is-dark is-rounded">New Quiz</button>
+          <a href="/newQuiz"> <button class="button is-large is-dark is-rounded">New Quiz</button></a> 
         </div>
         
     </div>

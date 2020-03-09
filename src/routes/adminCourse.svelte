@@ -73,6 +73,7 @@
   </h4>
   <div class="columns hero-body">
     <div class="column is-one-quarter left-pane">
+
       <div class="field">
         <label for="sem" class="label">Choose semester:</label>
         <div class="control">
@@ -88,6 +89,7 @@
             </select>
           </div>
         </div>
+        
       </div>
       <button
         class="button is-rounded is-success is-medium"

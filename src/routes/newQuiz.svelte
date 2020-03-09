@@ -11,13 +11,12 @@
 	let quizname = 'loading...'
 	let flag = false
 
+	let sem, coursecode, startTime, endTime, sections
+
 	onMount(async () => {
-		await db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE313').collection('quizzes').doc('quiz1').get()
-			.then(doc => {
-				quizname = doc.data()['QuizName']
-			});
-		await db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE313').collection('quizzes').doc('quiz1').collection('questions')
+		await db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1')
 			.onSnapshot(querySnapshot => {
+				quizname = querySnapshot.data()['QuizName']
 				id = []
 				questions = []
 				querySnapshot.forEach(doc => {
@@ -50,9 +49,11 @@
 	<title>Quiz App</title>
 </svelte:head>
 
-<div class="level">
-	<div class="level-item">
-		<button class="button is-primary is-rounded is-medium">+ Create new quiz</button>
+
+<div class="card">
+	<header></header>
+	<div class="card-body">
+
 	</div>
 </div>
 
