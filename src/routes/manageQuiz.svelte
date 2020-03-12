@@ -11,7 +11,7 @@
 	let quizname = 'loading...'
 	let flag = false
 
-	let sem, coursecode, startTime, endTime, sections
+	
 
 	onMount(async () => {
 		await db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1').get()
