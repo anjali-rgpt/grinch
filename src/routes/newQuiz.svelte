@@ -14,9 +14,12 @@
 	let sem, coursecode, startTime, endTime, sections
 
 	onMount(async () => {
-		await db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1')
+		await db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1').get()
+		.then(doc =>
+		quizname=doc.data()['QuizName'])
+		await db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1').collection("questions")
 			.onSnapshot(querySnapshot => {
-				quizname = querySnapshot.data()['QuizName']
+				//quizname = querySnapshot.data()['QuizName']
 				id = []
 				questions = []
 				querySnapshot.forEach(doc => {
