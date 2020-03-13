@@ -29,7 +29,7 @@ main {
     </div>
     <div class="column has-background-dark is-half">
     <div class="center">
-            <button class="button is-large is-primary is-rounded">Manage Quizzes</button>
+           <a href="/manageQuiz"> <button class="button is-large is-primary is-rounded">Manage Quizzes</button></a>
         </div>
         
     </div>
