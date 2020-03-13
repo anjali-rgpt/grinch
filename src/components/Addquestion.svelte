@@ -14,7 +14,7 @@
     else{
     db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1').collection('questions').add({
         Question: question,
-        Points: points,
+        Points: toString(points),
         Correct: correct,
         OptionA: optiona,
         OptionB: optionb,
