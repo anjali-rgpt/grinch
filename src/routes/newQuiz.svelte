@@ -1,8 +1,7 @@
 <script>
 import { onMount } from "svelte";
   import AddQuizDetails from "../components/AddQuizDetails.svelte";
-  import Field from "../components/Field.svelte";
-  import AddQuestion from "../components/AddQuestion.svelte";
+  
   let sem, courseCode;
 
   let semesters = [];
@@ -60,4 +59,6 @@ import { onMount } from "svelte";
   {/each}
 </select>
 
-<AddQuizDetails semester={sem} courseCode={courseCode}/>
+<AddQuizDetails semester={sem} courseCode={courseCode} />
+
+

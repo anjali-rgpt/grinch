@@ -1,4 +1,5 @@
 <script>
+export let semester,courseCode,quiz;
   let question, points, optiona, optionb, optionc, optiond, correct
 
   const adder = () => {
@@ -12,7 +13,7 @@
       alert("Invalid points.");
     }
     else{
-    db.collection('course-by-sem').doc('6').collection('courselist').doc('15CSE311').collection('quizzes').doc('quiz1').collection('questions').add({
+    db.collection('course-by-sem').doc(String(semester)).collection('courselist').doc(courseCode).collection('quizzes').doc(quiz).collection('questions').add({
         Question: question,
         Points: toString(points),
         Correct: correct,
