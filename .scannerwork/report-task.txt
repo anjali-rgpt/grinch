@@ -1,6 +1,6 @@
-projectKey=grinchProject
+projectKey=brainboggle3
 serverUrl=http://localhost:9000
 serverVersion=8.1.0.31237
-dashboardUrl=http://localhost:9000/dashboard?id=grinchProject
-ceTaskId=AXDAjqbV1XmeOXYFl0_E
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXDAjqbV1XmeOXYFl0_E
+dashboardUrl=http://localhost:9000/dashboard?id=brainboggle3
+ceTaskId=AXDae0e1NDuWJ4t9OnLU
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXDae0e1NDuWJ4t9OnLU
