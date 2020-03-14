@@ -6,7 +6,7 @@ const submitQuiz= ()=>{
     let start=new Date(startTime)
     let end=new Date(endTime)
 
-    db.collection("course-by-sem").doc(String(semester)).collection("courselist").doc(courseCode).collection('quizzes').add({
+    db.collection("course-by-sem").doc(String(semester)).collection("courselist").doc(courseCode).collection('quizzes').doc(quizName).set({
                     QuizName:quizName,
                     StartTime:start,
                     EndTime:end,
@@ -16,7 +16,7 @@ const submitQuiz= ()=>{
                 })
                 .then(function (doc) {
                     console.log('Quiz added!')
-                    quizNameCode = null, startTime = null, endTime = null,quizpass=null
+                    quizName = null, startTime = null, endTime = null,quizpass=null
                 });
 }
 
