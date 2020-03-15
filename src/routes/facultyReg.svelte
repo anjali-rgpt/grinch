@@ -7,7 +7,7 @@ const submit=()=>{
         first_name: firstName,
         last_name: lastName,
         phone_number: phoneNumber,
-        user_name : form.usernamesignup.value,
+        user_name : userName,
         email_id :email,
         password : password
 });
