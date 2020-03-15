@@ -9,11 +9,13 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run sapper
-      run: npx serve
     - name: Run Cypress
       run: |
         cypress run --record --key d4d046a9-e025-4d49-9c5e-daebd7df64bd
+    - name: Run sapper
+      run: |
+        npx sapper export
+        npx serve __sapper__/export
     - name: Add remote origin
       run: |
           git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
