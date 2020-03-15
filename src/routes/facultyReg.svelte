@@ -14,10 +14,22 @@ const submit=()=>{
 
 auth.createUserWithEmailAndPassword(email, password).catch( error => {
     // Handle Errors here.
-    var errorCode = error.code;
+    var user = auth.currentUser;
+
+    user.sendEmailVerification().then(()=> {
+      // Email sent.
+    }).catch(error=> {
+        var errorMessage = error.message;
+    
+        alert(errorMessage) 
+    });
+
+   }).catch(error=> {
+    // Handle Errors here.
+    
     var errorMessage = error.message;
-    alert(errorCode)
-    alert(errorMessage)
+    
+    alert(errorMessage) 
 });
 }
 </script>
@@ -63,7 +75,7 @@ auth.createUserWithEmailAndPassword(email, password).catch( error => {
                                         </label>
                                         <div class="" data-validate = "Confirming Password is required">
                                             <span class="btn-show-pass">
-                                                <i class="fa fa-eye"></i>
+                                                <i class="fas fa-eye"></i>
                                             </span>
                                             <input class="input" type="password" name="password_confirm" id="password_confirm" placeholder="Retype Password">
                                             
