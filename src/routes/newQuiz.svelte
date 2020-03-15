@@ -1,7 +1,9 @@
 <script>
-import { onMount } from "svelte";
+  import {
+    onMount
+  } from "svelte";
   import AddQuizDetails from "../components/AddQuizDetails.svelte";
-  
+
   let sem, courseCode;
 
   let semesters = [];
@@ -18,6 +20,7 @@ import { onMount } from "svelte";
           semesters = semesters;
         });
         semesters = semesters;
+        sem = 1
       });
     await getCourses();
   });
@@ -40,25 +43,41 @@ import { onMount } from "svelte";
   };
 </script>
 
-<h4>Panel to select semester and course for which quiz is to be created</h4>
+<div class="hero is-fullheight">
+  <h4 class="is-size-3 has-text-centered">Panel to select semester and course for which quiz is to be created</h4>
+  <div class="hero-body">
 
-<select name="semester" bind:value={sem} on:change={getCourses}>
-  {#each semesters as semester}
-    <option value={semester['Semester']} name={semester['Semester']}>
-      {'Semester ' + (semester['Semester'] || 'loading...')}
-    </option>
-  {/each}
-</select>
+    <div class="container">
 
+      <div class="field is-grouped">
 
-<select name="coursecode" bind:value={courseCode}>
-{#each courselist as course}
-    <option value={course['CourseCode']} name={course['CourseCode']}>
-      {(course['CourseCode'] || 'loading...')}
-    </option>
-  {/each}
-</select>
+        <div class="control">
+          <div class="select">
+            <select name="semester" bind:value={sem} on:change={getCourses}>
+              {#each semesters as semester}
+                <option value={semester['Semester']} name={semester['Semester']}>
+                  {'Semester ' + (semester['Semester'] || 'loading...')}
+                </option>
+              {/each}
+            </select>
+          </div>
+        </div>
 
-<AddQuizDetails semester={sem} courseCode={courseCode} />
+        <div class="control">
+          <div class="select">
+            <select name="coursecode" bind:value={courseCode}>
+              {#each courselist as course}
+                  <option value={course['CourseCode']} name={course['CourseCode']}>
+                    {(course['CourseCode'] || 'loading...')}
+                  </option>
+                {/each}
+            </select>
+          </div>
+        </div>
 
+      </div>
+      <AddQuizDetails semester={sem} courseCode={courseCode} />
+    </div>
 
+  </div>
+</div>

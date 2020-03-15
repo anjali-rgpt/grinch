@@ -39,9 +39,15 @@ const submitQuiz= ()=>{
 <label for="quizpass" class="label">Quiz Password</label>
 <input type="text" placeholder="Quiz Password" id="quizpass" class="input" bind:value={quizpass} required />
 
-<div class="button is-rounded is-medium is-outlined" id="quizsubmit" on:click={submitQuiz}>Add Quiz</div>
+<div class="button is-rounded is-medium is-dark pad-top" id="quizsubmit" on:click={submitQuiz}>Add Quiz</div>
 
 {#if flag==1}
 <h1 class="is-size-3 has-text-centered pad-top">Add questions:</h1>
 <AddQuestion semester={semester} courseCode={courseCode} quiz={quizName}/>
 {/if}
+
+<style>
+.pad-top {
+    margin-top: 1rem;
+}
+</style>
