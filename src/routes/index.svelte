@@ -23,24 +23,24 @@ main {
 <div class="columns is-multiline">
     <div class="column has-background-primary is-half">
         <div class="center">
-          <a href="/newQuiz"> <button class="button is-large is-dark is-rounded">New Quiz</button></a> 
+          <a href="/newQuiz"> <button class="button is-large is-dark is-rounded" id="newQuiz">New Quiz</button></a> 
         </div>
         
     </div>
     <div class="column has-background-dark is-half">
     <div class="center">
-           <a href="/manageQuiz"> <button class="button is-large is-primary is-rounded">Manage Quizzes</button></a>
+           <a href="/manageQuiz"> <button class="button is-large is-primary is-rounded" id="manageQuiz">Manage Quizzes</button></a>
         </div>
         
     </div>
     <div class="column has-background-dark is-half">
         <div class="center">
-            <button class="button is-large is-primary is-rounded">Performance Reports</button>
+            <button id="Performance" class="button is-large is-primary is-rounded">Performance Reports</button>
         </div>
     </div>
     <div class="column has-background-primary is-half">
         <div class="center">
-           <a href="/adminCourse"> <button class="button is-large is-dark is-rounded">Admin</button></a>
+           <a href="/adminCourse"> <button id="admin" class="button is-large is-dark is-rounded">Admin</button></a>
         </div>
     </div>
 </div>
