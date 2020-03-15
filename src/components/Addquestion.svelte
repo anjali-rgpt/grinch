@@ -1,5 +1,5 @@
 <script>
-  export let semester, courseCode, quiz;
+  export let semester, courseCode, quizName;
   let question, points, optiona, optionb, optionc, optiond, correct
 
   const adder = () => {
@@ -11,8 +11,15 @@
     } else if (points < 1.0) {
       alert("Invalid points.");
     } else {
-      db.collection('course-by-sem').doc(String(semester)).collection('courselist').doc(courseCode).collection(
-          'quizzes').doc(quiz).collection('questions').add({
+      console.log(semester, courseCode, quizName)
+      db.collection('course-by-sem')
+      .doc(String(semester))
+      .collection('courselist')
+      .doc(String(courseCode))
+      .collection('quizzes')
+      .doc(String(quizName))
+      .collection('questions')
+      .add({
           Question: question,
           Points: toString(points),
           Correct: correct,
@@ -25,6 +32,9 @@
           console.log('Question added!')
           question = null, points = null, optiona = null, optionb = null, optionc = null, optiond = null, correct =
             null
+        })
+        .catch(err => {
+          console.log(err);
         });
     }
   }

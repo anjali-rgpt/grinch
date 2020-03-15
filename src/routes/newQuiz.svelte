@@ -76,7 +76,7 @@
         </div>
 
       </div>
-      <AddQuizDetails semester={sem} courseCode={courseCode} />
+      <AddQuizDetails semester={sem} courseCode={courseCode}/>
     </div>
 
   </div>

@@ -8,21 +8,27 @@
         let start = new Date(startTime)
         let end = new Date(endTime)
 
+        console.log(semester, courseCode, quizName)
+
         db.collection("course-by-sem")
         .doc(String(semester))
         .collection("courselist")
         .doc(courseCode)
-        .collection(
-            'quizzes').doc(quizName).set({
+        .collection('quizzes')
+        .doc(quizName)
+        .set({
             QuizName: quizName,
             StartTime: start,
             EndTime: end,
             Password: quizpass
         })
-        .then(function (doc) {
+        .then(doc => {
             console.log('Quiz added!')
             flag = true
-            quizName = null, startTime = null, endTime = null, quizpass = null
+            startTime = null, endTime = null, quizpass = null
+        })
+        .catch(err => {
+            console.log(err);
         });
     }
 </script>
@@ -43,7 +49,7 @@
 
 {#if flag}
 <h1 class="is-size-3 has-text-centered pad-top">Add questions:</h1>
-<AddQuestion semester={semester} courseCode={courseCode} quiz={quizName}/>
+<AddQuestion semester={semester} courseCode={5} quizName={quizName}/>
 {/if}
 
 <style>
