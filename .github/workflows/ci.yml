@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run sapper
-      run: npm run dev
+      run: npx serve
     - name: Run Cypress
       run: |
         cypress run --record --key d4d046a9-e025-4d49-9c5e-daebd7df64bd
