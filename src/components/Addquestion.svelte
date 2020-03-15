@@ -1,31 +1,31 @@
 <script>
-export let semester,courseCode,quiz;
+  export let semester, courseCode, quiz;
   let question, points, optiona, optionb, optionc, optiond, correct
 
   const adder = () => {
-    if(correct==null || question == null || optiona == null || optionb==null || optionc==null || optiond==null){
+    if (correct == null || question == null || optiona == null || optionb == null || optionc == null || optiond ==
+      null) {
       alert("Form not complete");
-    }
-    else if(correct != optiona && correct!=optionb && correct != optionc && correct != optiond){
+    } else if (correct != optiona && correct != optionb && correct != optionc && correct != optiond) {
       alert("Correct answer doesn't match any of the options");
-    }
-    else if(points<1.0){
+    } else if (points < 1.0) {
       alert("Invalid points.");
-    }
-    else{
-    db.collection('course-by-sem').doc(String(semester)).collection('courselist').doc(courseCode).collection('quizzes').doc(quiz).collection('questions').add({
-        Question: question,
-        Points: toString(points),
-        Correct: correct,
-        OptionA: optiona,
-        OptionB: optionb,
-        OptionC: optionc,
-        OptionD: optiond,
-      })
-      .then(function (doc) {
-        console.log('Question added!')
-        question = null, points = null, optiona = null, optionb = null, optionc = null, optiond = null, correct = null
-      });
+    } else {
+      db.collection('course-by-sem').doc(String(semester)).collection('courselist').doc(courseCode).collection(
+          'quizzes').doc(quiz).collection('questions').add({
+          Question: question,
+          Points: toString(points),
+          Correct: correct,
+          OptionA: optiona,
+          OptionB: optionb,
+          OptionC: optionc,
+          OptionD: optiond,
+        })
+        .then(function (doc) {
+          console.log('Question added!')
+          question = null, points = null, optiona = null, optionb = null, optionc = null, optiond = null, correct =
+            null
+        });
     }
   }
 </script>
@@ -60,13 +60,13 @@ export let semester,courseCode,quiz;
   <div class="card-content">
     <div class="level">
       <div class="level-item">
-        <input class="input" bind:value={optiona} id="optiona"placeholder="Option 1" type="text">
+        <input class="input" bind:value={optiona} id="optiona" placeholder="Option 1" type="text">
       </div>
       <div class="level-item">
         <input class="input" bind:value={optionb} id="optionb" placeholder="Option 2" type="text">
       </div>
       <div class="level-item">
-        <input class="input" bind:value={optionc} id="optionc"placeholder="Option 3" type="text">
+        <input class="input" bind:value={optionc} id="optionc" placeholder="Option 3" type="text">
       </div>
       <div class="level-item">
         <input class="input" bind:value={optiond} id="optiond" placeholder="Option 4" type="text">

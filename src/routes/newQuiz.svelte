@@ -23,10 +23,10 @@
         sem = 1
       });
     await getCourses();
+    
   });
 
   const getCourses = () => {
-    console.log(sem);
     //addNew = false;
     db.collection("course-by-sem")
       .doc(String(sem))
@@ -37,8 +37,8 @@
           courselist.push(element.data());
           courselist = courselist;
         });
-        console.log(courselist);
         courselist = courselist;
+        courseCode = courselist[0].CourseCode
       });
   };
 </script>
