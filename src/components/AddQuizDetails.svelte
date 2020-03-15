@@ -2,7 +2,8 @@
     import Field from "../components/Field.svelte";
     import AddQuestion from "../components/AddQuestion.svelte";
     export let semester, courseCode;
-    let quizName, startTime, endTime, quizpass, flag
+    let quizName, startTime, endTime, quizpass, flag;
+    
 
     const submitQuiz = () => {
         let start = new Date(startTime)
@@ -20,7 +21,8 @@
             QuizName: quizName,
             StartTime: start,
             EndTime: end,
-            Password: quizpass
+            Password: quizpass,
+            Number_of_questions:0
         })
         .then(doc => {
             console.log('Quiz added!')
@@ -49,7 +51,7 @@
 
 {#if flag}
 <h1 class="is-size-3 has-text-centered pad-top">Add questions:</h1>
-<AddQuestion semester={semester} courseCode={5} quizName={quizName}/>
+<AddQuestion semester={semester} courseCode={courseCode} quizName={quizName} />
 {/if}
 
 <style>
