@@ -35,7 +35,7 @@ main {
     </div>
     <div class="column has-background-dark is-half">
         <div class="center">
-            <button id="Performance" class="button is-large is-primary is-rounded">Performance Reports</button>
+           <a href="/performance"> <button id="Performance" class="button is-large is-primary is-rounded">Performance Reports</button></a>
         </div>
     </div>
     <div class="column has-background-primary is-half">

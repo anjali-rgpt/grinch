@@ -65,7 +65,7 @@
 </h1>
 
 <h1 class="is-size-3 has-text-centered pad-top">Add questions:</h1>
-<AddQuestion />
+<AddQuestion semester={6} courseCode={"15CSE311"} quizName={"quiz1"}/>
 
 <hr>
 
