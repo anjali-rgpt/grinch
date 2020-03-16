@@ -12,14 +12,9 @@
       alert("Invalid points.");
     } else {
       console.log(semester, courseCode, quizName)
-      let q=db.collection('course-by-sem')
-      .doc(String(semester))
-      .collection('courselist')
-      .doc(String(courseCode))
-      .collection('quizzes')
-      .doc(String(quizName))
+      
 
-      questnum=q.data()['Number_of_questions']
+      
       db.collection('course-by-sem')
       .doc(String(semester))
       .collection('courselist')
@@ -38,14 +33,6 @@
         })
         .then(function (doc) {
           console.log('Question added!')
-          questnum+=1
-          db.collection('course-by-sem')
-      .doc(String(semester))
-      .collection('courselist')
-      .doc(String(courseCode))
-      .collection('quizzes')
-      .doc(String(quizName))
-      .update({Number_of_questions:questnum})
           question = null, points = null, optiona = null, optionb = null, optionc = null, optiond = null, correct =
             null
         })
