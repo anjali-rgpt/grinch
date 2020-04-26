@@ -1,6 +1,6 @@
 
-describe('The Faculty Page Load', function() {
-    it('sucessfully loads', function() {
+describe('Testing Quiz Management', function() {
+    it('successfully loads', function() {
       cy.visit('/') // change URL to match your dev URL
       cy.visit('/manageQuiz')
     })
