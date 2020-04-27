@@ -1,6 +1,6 @@
 <script>
-    import Field from "../components/Field.svelte";
-    import AddQuestion from "../components/AddQuestion.svelte";
+
+    import { goto } from '@sapper/app'
     export let semester, courseCode;
     let quizName, startTime, endTime, quizpass, flag, duration;
     
@@ -28,7 +28,9 @@
         .then(doc => {
             console.log('Quiz added!')
             flag = true
-            startTime = null, endTime = null, quizpass = null, duration=null
+            alert('Quiz Created. You are now being redirected.')
+            goto('/manageQuiz')
+            //startTime = null, endTime = null, quizpass = null, duration=null
         })
         .catch(err => {
             console.log(err);
@@ -53,10 +55,10 @@
 
 <div class="button is-rounded is-medium is-dark pad-top" id="quizsubmit" on:click={submitQuiz}>Add Quiz</div>
 
-{#if flag}
+<!-- {#if flag}
 <h1 class="is-size-3 has-text-centered pad-top">Add questions:</h1>
 <AddQuestion semester={semester} courseCode={courseCode} quizName={quizName} />
-{/if}
+{/if} -->
 
 <style>
 .pad-top {
