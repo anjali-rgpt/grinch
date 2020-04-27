@@ -1,5 +1,5 @@
 <script>
-    export let quizName,  semester, courseCode, startTime, endTime, password;
+    export let quizName,  semester, courseCode, startTime, endTime, password,duration;
 
     const deleteQuiz = () => {
         if (confirm("Are you sure you want to delete?")) {
@@ -8,7 +8,7 @@
                     console.log('Quiz deleted :(')
                 });
         } else {
-            console.log("Öperation aborted")
+            console.log("Operation aborted")
         }
 
     }
@@ -19,10 +19,13 @@
         <p class="card-header-title">
             {'Quiz Name :' + quizName}
         </p>
+        <p>
+            {'Password: ' + password}
+        </p>
     </header>
     <div class="card-content">
         <p>
-            {'Password: ' + password}
+            {'Duration: ' + duration}
         </p>
         <p>
             {'Start Time: ' + startTime}
