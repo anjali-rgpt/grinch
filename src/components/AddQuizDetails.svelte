@@ -2,7 +2,7 @@
     import Field from "../components/Field.svelte";
     import AddQuestion from "../components/AddQuestion.svelte";
     export let semester, courseCode;
-    let quizName, startTime, endTime, quizpass, flag;
+    let quizName, startTime, endTime, quizpass, flag, duration;
     
 
     const submitQuiz = () => {
@@ -22,12 +22,13 @@
             StartTime: start,
             EndTime: end,
             Password: quizpass,
+            Duration:duration,
             Number_of_questions:0
         })
         .then(doc => {
             console.log('Quiz added!')
             flag = true
-            startTime = null, endTime = null, quizpass = null
+            startTime = null, endTime = null, quizpass = null, duration=null
         })
         .catch(err => {
             console.log(err);
@@ -43,6 +44,9 @@
 
 <label for="endtime" class="label">End Time</label>
 <input type="datetime-local" placeholder="End Time" id="endtime" class="input" bind:value={endTime} required />
+
+<label for="duration" class="label">Duration in minutes</label>
+<input type="number" placeholder="Duration in minutes" id="duration" class="input" bind:value={duration} required />
 
 <label for="quizpass" class="label">Quiz Password</label>
 <input type="text" placeholder="Quiz Password" id="quizpass" class="input" bind:value={quizpass} required />
