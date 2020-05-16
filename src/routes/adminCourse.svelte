@@ -75,7 +75,7 @@
     <div class="column is-one-quarter left-pane">
 
       <div class="field">
-        <label for="sem" class="label">Choose semester:</label>
+        <label for="sem" id="semdrop"class="label">Choose semester:</label>
         <div class="control">
           <div id="sem" class="select">
             <select name="semester" bind:value={sem} on:change={getCourses}>
@@ -92,13 +92,14 @@
         
       </div>
       <button
+      id="addcourse"
         class="button is-rounded is-success is-medium"
         on:click={() => {
           addNew = true;
         }}>
         + Add new course
       </button>
-      <button on:click={() => {addNew = !addNew}} class="button is-rounded is-medium is-dark pad-top">View current courses</button>
+      <button on:click={() => {addNew = !addNew}} class="button is-rounded is-medium is-dark pad-top" id="view">View current courses</button>
     </div>
     <div class="column right-pane">
       <!-- course details here -->
