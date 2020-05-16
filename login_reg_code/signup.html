@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <title>Login V14</title>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!--===============================================================================================-->	
+                <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+            <!--===============================================================================================-->	
+                <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+            <!--===============================================================================================-->	
+                <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="css/util.css">
+                <link rel="stylesheet" type="text/css" href="css/main.css">
+            <!--===============================================================================================-->
+            <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+            <script src="js/validation.js"></script> 
+    </head>
+    <body onload="document.registration.firstnamesignup.focus();">
+        <section>
+            <div class="limiter">
+
+                            <div class="container-login100" id="modal-signup">
+                                <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+                                    <form  method="POST" action="" class="login100-form validate-form flex-sb flex-w" name='registration' id="registration" onSubmit="return formValidation();">
+                                        <span class="login100-form-title p-b-32">
+                                            Faculty Sign up
+                                        </span>
+                                        <span class="txt1 p-b-11">
+                                            First name
+                                        </span>
+                                        <div class="wrap-input100 validate-input m-b-36" data-validate = "firstname is required">
+                                            <input class="input100" type="text" name="firstnamesignup" id="firstnamesignup" placeholder="myfirstname" >
+                                            <span class="focus-input100"></span>
+                                        </div>
+                    
+                                        <span class="txt1 p-b-11">
+                                            Last Name
+                                        </span>
+                                        <div class="wrap-input100 validate-input m-b-36" data-validate = "lastname is required">
+                                            <input class="input100" type="text" name="lastnamesignup" id="lastnamesignup" placeholder="mylastname" >
+                                            <span class="focus-input100"></span>
+                                        </div>
+                    
+                                        <span class="txt1 p-b-11">
+                                            Phone Number
+                                        </span>
+                                        <div class="wrap-input100 validate-input m-b-36" data-validate = "Phonenumber is required">
+                                            <input class="input100" type="text" name="phonenumbersignup" id="phonenumbersignup" placeholder="myphonenumber" >
+                                            <span class="focus-input100"></span>
+                                        </div>
+                    
+                                        <span class="txt1 p-b-11">
+                                            Username
+                                        </span>
+                                        <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+                                            <input class="input100" type="text" name="usernamesignup" id="usernamesignup" placeholder="mysuperusername690" >
+                                            <span class="focus-input100"></span>
+                                        </div>
+                    
+                                        <span class="txt1 p-b-11">
+                                            Mail_id
+                                        </span>
+                                        <div class="wrap-input100 validate-input m-b-36" data-validate = "mail_id is required">
+                                            <input class="input100" type="email" name="emailsignup" id="emailsignup" placeholder="mysupermail@mail.com" >
+                                            <span class="focus-input100"></span>
+                                        </div>
+                                        
+                                        <span class="txt1 p-b-11">
+                                            Password
+                                        </span>
+                                        <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+                                            <span class="btn-show-pass">
+                                                <i class="fa fa-eye"></i>
+                                            </span>
+                                            <input class="input100" type="password" name="passwordsignup" id="passwordsignup" placeholder="eg. X8df!90EO" >
+                                            <span class="focus-input100"></span>
+                                        </div>
+                    
+                                        <span class="txt1 p-b-11">
+                                             Confirm Password
+                                        </span>
+                                        <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+                                            <span class="btn-show-pass">
+                                                <i class="fa fa-eye"></i>
+                                            </span>
+                                            <input class="input100" type="password" name="passwordsignup_confirm" id="passwordsignup_confirm" placeholder="eg. X8df!90EO">
+                                            <span class="focus-input100"></span>
+                                        </div>
+                    
+                                        <div class="container-login100-form-btn">
+                                            <button class="login100-form-btn" onclick="send_verification()">
+                                                sign up
+                                            </button>
+                                        </div>
+                                        <br>
+                                        <br>
+                                            
+                                        <div>
+                                            <p class="txt3">
+                                                already a  member yet click here
+                                                <a href="index2.html"> Go To Login</a>
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <p class="txt3">
+                                                update deatils click here
+                                                <a href="update.html">Update Details</a>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                      
+                  
+            </div>
+        </section>
+        
+            
+
+            
+
+
+
+
+                                <script>
+                                // Your web app's Firebase configuration
+                                var firebaseConfig = {
+                                    apiKey: "AIzaSyBeknq0I5Gjjw5Z_BgIxGlwikCnwXhcZZc",
+                                    authDomain: "brainboggle3.firebaseapp.com",
+                                    databaseURL: "https://brainboggle3.firebaseio.com",
+                                    projectId: "brainboggle3",
+                                    storageBucket: "brainboggle3.appspot.com",
+                                    messagingSenderId: "770793841097",
+                                    appId: "1:770793841097:web:24c0d98ed0e3a951068818",
+                                    measurementId: "G-PEED53H9TX"
+                                };
+                                // Initialize Firebase
+                                firebase.initializeApp(firebaseConfig);
+                                firebase.auth.Auth.Persistence.LOCAL;
+                                firebase.analytics();
+
+                                    const auth = firebase.auth();
+                                    const db = firebase.firestore();    
+                                </script>
+                                    
+                                <!--===============================================================================================-->
+                                    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+                                <!--===============================================================================================-->
+                                    <script src="vendor/animsition/js/animsition.min.js"></script>
+
+                                    <script src="js/main.js"></script>
+                                   <script src="js/connnectandauth.js"></script>
+
+
+    </body>
+</html>
