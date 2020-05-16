@@ -75,10 +75,10 @@
     <div class="column is-one-quarter left-pane">
 
       <div class="field">
-        <label for="sem" id="semdrop"class="label">Choose semester:</label>
+        <label for="sem" class="label">Choose semester:</label>
         <div class="control">
           <div id="sem" class="select">
-            <select name="semester" bind:value={sem} on:change={getCourses}>
+            <select name="semester" bind:value={sem} on:change={getCourses} id="semdrop">
               {#each semesters as semester}
                 <option
                   value={semester['Semester']}

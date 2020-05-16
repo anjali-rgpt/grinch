@@ -12,7 +12,7 @@ describe('Testing Quiz Management', function() {
         cy.get('#optionc').type("optionc")
         cy.get('#optiond').type("optiond")
         cy.get('#correct').type("optiond")
-        cy.get('#points').type('3')
+        cy.get('#points').type(3)
         cy.get('#addbutton').click()
         cy.get('p').should('contain', "question")
        

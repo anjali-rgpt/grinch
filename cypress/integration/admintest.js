@@ -12,7 +12,7 @@ describe('Testing Admin Functions', function() {
     it('adds new course',function(){
         cy.get('#coursecode').type('15CSE444')
         cy.get('#coursename').type('New Course Test')
-        cy.get('#credits').type('4')
+        cy.get('#credits').type(4)
         cy.get('#donebutton').click()
         
     })
