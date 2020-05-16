@@ -2,11 +2,12 @@ describe('Testing Admin Functions', function() {
     it('successfully loads', function() {
       cy.visit('/') // change URL to match your dev URL
       cy.visit('/adminCourse')
-      cy.get("#addcourse").click()
+      
     })
 
     it('select semester', function(){
         cy.get('#semdrop').select('8')
+        cy.get("#addcourse").click()
     })
 
     it('adds new course',function(){
