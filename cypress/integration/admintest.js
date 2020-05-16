@@ -2,18 +2,31 @@ describe('Testing Admin Functions', function() {
     it('successfully loads', function() {
       cy.visit('/') // change URL to match your dev URL
       cy.visit('/adminCourse')
-      
+      cy.get("#addcourse").click()
+    })
+
+    it('select semester', function(){
+        cy.get('#semdrop').select('8')
     })
 
     it('adds new course',function(){
-        cy.get('#coursecode').type(question)
-        cy.get('#optiona').type(optiona)
-        cy.get('#optionb').type(optionb)
-        cy.get('#optionc').type(optionc)
-        cy.get('#optiond').type(optiond)
-        cy.get('#correct').type(correct)
-        cy.get('#points').type(points)
-        cy.get('#addbutton').click()
-        cy.get('p').should('contain', question)
-       
+        cy.get('#coursecode').type('15CSE444')
+        cy.get('#coursename').type('New Course Test')
+        cy.get('#credits').type('4')
+        cy.get('#donebutton').click()
+        
     })
+
+    it('validates addition of course', function(){
+        cy.get('#view').click()
+        cy.get('p').should('contain', '15CSE444')
+        cy.get('p').should('contain', 'New Course Test')
+    })
+
+    it('deletes current course', function(){
+        cy.get("#alert").click()
+        cy.get('p').should('not.contain', 'New Course Test')
+    })
+
+
+})
